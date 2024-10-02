@@ -1,9 +1,7 @@
-// Transport interface
 interface Transport {
     void deliver();
 }
 
-// Truck class
 class Truck implements Transport {
     @Override
     public void deliver() {
@@ -11,7 +9,6 @@ class Truck implements Transport {
     }
 }
 
-// Ship class
 class Ship implements Transport {
     @Override
     public void deliver() {
@@ -19,7 +16,6 @@ class Ship implements Transport {
     }
 }
 
-// Drone class
 class Drone implements Transport {
     @Override
     public void deliver() {
@@ -27,7 +23,6 @@ class Drone implements Transport {
     }
 }
 
-// Factory Method pattern
 abstract class TransportFactory {
     public abstract Transport createTransport();
 }
@@ -53,24 +48,23 @@ class AirTransportFactory extends TransportFactory {
     }
 }
 
-// Test class
 public class FactoryMethod {
     public static void main(String[] args) {
         TransportFactory factory;
 
-        // Example: Water delivery
+
         factory = new WaterTransportFactory();
         Transport transport = factory.createTransport();
-        transport.deliver();  // Output: Delivery by water using a ship.
+        transport.deliver();
 
-        // Example: Land delivery
+
         factory = new LandTransportFactory();
         transport = factory.createTransport();
-        transport.deliver();  // Output: Delivery by land using a truck.
+        transport.deliver();
 
-        // Example: Air delivery
+
         factory = new AirTransportFactory();
         transport = factory.createTransport();
-        transport.deliver();  // Output: Delivery by air using a drone.
+        transport.deliver();
     }
 }
